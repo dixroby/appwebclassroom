@@ -1,0 +1,28 @@
+{% extends 'core/base.html' %}
+
+{% load static%}
+{% block contenido %}
+
+<h2>Listado de alumnos</h2>
+
+<table>
+    <tr>
+        <th>Nombre</th>
+        <th>telefono</th>
+        <th>correo</th>
+        <th>Opciones</th>
+    </tr>
+
+    {% for c in alumnos%}
+    
+    <tr>
+        <td>{{c.nombre}}</td>
+        <td>{{c.telefono}}</td>
+        <td>{{c.correo}}</td>
+        <td>
+            <a href="{% url 'ver' c.id %}">Ver Alumno</a> 
+        </tr>
+    {%endfor %}
+
+</table>
+{% endblock %}

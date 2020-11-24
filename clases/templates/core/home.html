@@ -1,0 +1,30 @@
+{% extends 'core/base.html' %}
+
+{% load static%}
+{% block contenido %}
+
+
+<h2>Listado de clase</h2>
+
+<table>
+    <tr>
+        <th>Nombre</th>
+        <th>Descripción</th>
+        <th>disponibilidad</th>
+       {% comment %}  <th>Opciones</th> {% endcomment %}
+    </tr>
+
+    {% for c in alumnos%}
+    
+    <tr>
+        <td>{{c.nombre}}</td>
+        <td>{{c.Descripcion}}</td>
+        <td>{{c.disponibilidad}}</td>
+        <td>
+            <a href="{% url 'ver_matriculados' c.id %}">Ver matriculados</a> 
+    </tr>
+    {%endfor %}
+
+</table>
+{% endblock %}
+
